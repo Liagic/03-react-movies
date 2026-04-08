@@ -1,8 +1,9 @@
 import css from './App.module.css';
+import { fetchMovie } from '../../services/movieService';
 import type { Movie } from '../../types/movie';
 import { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { fetchMovie } from '../../services/fetchMovies';
+
 import SearchBar from '../SearchBar/SearchBar';
 import Loader from '../Loader/Loader';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
