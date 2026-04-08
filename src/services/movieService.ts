@@ -5,7 +5,7 @@ const API_KEY = import.meta.env.VITE_TMDB_TOKEN;
 interface TmdbResponse {
   results: Movie[];
 }
-export const fetchMovie = async (search: string) => {
+export const fetchMovie = async (search: string): Promise<Movie[]> => {
   const response = await axios.request<TmdbResponse>({
     method: 'GET',
     url: 'https://api.themoviedb.org/3/search/movie',
