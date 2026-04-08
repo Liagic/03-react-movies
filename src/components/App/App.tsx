@@ -17,6 +17,7 @@ function App() {
 
   const handleSearch = async (query: string) => {
     try {
+      setMovies([]);
       setIsError(false);
       setIsLoading(true);
       const response = await fetchMovie(query);
@@ -39,7 +40,7 @@ function App() {
       ) : isError ? (
         <ErrorMessage />
       ) : (
-        <MovieGrid movies={movies} onClick={setOpenModal} />
+        <MovieGrid movies={movies} onSelect={setOpenModal} />
       )}
       {openModal && (
         <MovieModal onClose={() => setOpenModal(null)} movie={openModal} />
