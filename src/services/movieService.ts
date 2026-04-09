@@ -6,16 +6,17 @@ interface TmdbResponse {
   results: Movie[];
 }
 export const fetchMovie = async (search: string): Promise<Movie[]> => {
-  const response = await axios.request<TmdbResponse>({
-    method: 'GET',
-    url: 'https://api.themoviedb.org/3/search/movie',
-    headers: {
-      accept: 'application/json',
-      Authorization: `Bearer ${API_KEY}`,
-    },
-    params: {
-      query: search,
-    },
-  });
+  const response = await axios.get<TmdbResponse>(
+    'https://api.themoviedb.org/3/search/movie',
+    {
+      headers: {
+        accept: 'application/json',
+        Authorization: `Bearer ${API_KEY}`,
+      },
+      params: {
+        query: search,
+      },
+    }
+  );
   return response.data.results;
 };
